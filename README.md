@@ -34,7 +34,6 @@ Create a small Rails app (or add to an existing project if already provided) tha
          rails db:seed
 
 4. Start the Rails server:
-
          rails server
 
 5. Open your browser and go to http://localhost:3000
