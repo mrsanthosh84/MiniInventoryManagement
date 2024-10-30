@@ -26,21 +26,21 @@ Create a small Rails app (or add to an existing project if already provided) tha
 
 2. Install dependencies:
 
-bundle install
+         bundle install
 
 3. Set up the database:
-rails db:create
-rails db:migrate
-rails db:seed
+         rails db:create
+         rails db:migrate
+         rails db:seed
 
 4. Start the Rails server:
 
-rails server
+         rails server
 
 5. Open your browser and go to http://localhost:3000
 
 6. Run the feature test suite:
-   bundle exec rspec
+         bundle exec rspec
 
 8. Run the feature test suite:
-rails test
+         rails test
