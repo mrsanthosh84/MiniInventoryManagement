@@ -28,7 +28,7 @@ Create a small Rails app (or add to an existing project if already provided) tha
 
 ```bundle install```
 
-3. Set up the database**:
+3. Set up the database:
 ```rails db:create
 rails db:migrate
 rails db:seed```
