@@ -1,0 +1,3 @@
+name,category,quantity,price,available
+Product A,Category 1,10,19.99,true
+Product B,Category 2,5,29.99,false

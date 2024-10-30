@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Inventory Management" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <% flash.each do |key, message| %>
+      <div style="margin: 10px 0; padding: 10px; border-radius: 4px; 
+                  <% if key == 'notice' %>
+                    background-color: #e7f3fe; color: #31708f; 
+                  <% elsif key == 'alert' || key == 'error' %>
+                    background-color: #f8d7da; color: #721c24; 
+                  <% else %>
+                    background-color: #d1ecf1; color: #0c5460; 
+                  <% end %>
+                  ">
+        <%= message %>
+      </div>
+    <% end %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

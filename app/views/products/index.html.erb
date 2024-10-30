@@ -1,0 +1,68 @@
+<h1>Product Inventory</h1>
+
+<%= form_with(url: products_path, method: :get, local: true) do %>
+  <fieldset>
+    <legend>Search and Filter</legend>
+    <div style="margin-bottom: 10px;">
+      <%= label_tag :search, "Search:" %>
+      <%= text_field_tag :search, params[:search], placeholder: "Enter product name" %>
+      <%= submit_tag "Search" %>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+      <%= label_tag :available, "Available:" %>
+      <%= select_tag :available, options_for_select([['All', ''], ['Yes', 'true'], ['No', 'false']], params[:available]) %>
+      <%= submit_tag "Filter" %>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+      <%= label_tag :order, "Order by:" %>
+      <%= select_tag :order, options_for_select([['Price', 'price'], ['Quantity', 'quantity']], params[:order]) %>
+      <%= submit_tag "Sort" %>
+    </div>
+  </fieldset>
+<% end %>
+
+<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #ccc; padding: 8px;">Name</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">Category</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">Quantity</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">Price</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">Available</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 8px;"><%= product.name %></td>
+        <td style="border: 1px solid #ccc; padding: 8px;"><%= product.category %></td>
+        <td style="border: 1px solid #ccc; padding: 8px;"><%= product.quantity %></td>
+        <td style="border: 1px solid #ccc; padding: 8px;"><%= number_to_currency(product.price) %></td>
+        <td style="border: 1px solid #ccc; padding: 8px;"><%= product.available ? 'Yes' : 'No' %></td>
+        <td style="border: 1px solid #ccc; padding: 8px;">
+          <%= link_to 'Edit', edit_product_path(product) %> |
+          <%= link_to 'Delete', product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-button' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div style="margin-top: 20px;">
+ <%= button_tag 'New Product', type: 'button', onclick: "window.location='#{new_product_path}'", 
+      style: 'background-color: #007BFF; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer;' %>
+</div>
+<div style="margin-top: 30px;"> 
+  <%= form_with(url: import_products_path, local: true, method: :post, multipart: true) do %>
+    <fieldset>
+      <legend>Import Products</legend>
+      <div style="margin-bottom: 10px;">
+        <%= file_field_tag :file, accept: '.csv' %>
+        <%= submit_tag "Import Products" %>
+      </div>
+    </fieldset>
+  <% end %>
+</div>
