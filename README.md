@@ -23,16 +23,16 @@ Create a small Rails app (or add to an existing project if already provided) tha
 
 1. **Clone the repository**:
    ```
-   git clone https://github.com/mrsanthosh84/MiniInventoryManagement.git```
+   git clone https://github.com/mrsanthosh84/MiniInventoryManagement.git
 
 2. **Install dependencies**:
 
-```bundle install```
+```bundle install
 
 3. **Set up the database**:
 ```rails db:create
 rails db:migrate
-rails db:seed```
+rails db:seed
 
 4. **Start the Rails server**:
 ```rails server```
