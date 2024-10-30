@@ -6,12 +6,6 @@ Create a small Rails app (or add to an existing project if already provided) tha
 
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Running the Application](#running-the-application)
-- [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
 
 ## Features
 
@@ -25,21 +19,30 @@ Create a small Rails app (or add to an existing project if already provided) tha
    git clone https://github.com/mrsanthosh84/MiniInventoryManagement.git
 
 2. Install dependencies:
-
+         ```
          bundle install
+         ```
 
-3. Set up the database:
+4. Set up the database:
+         ```
          rails db:create
          rails db:migrate
          rails db:seed
+         ```
 
-4. Start the Rails server:
+6. Start the Rails server:
+         ```
          rails server
+         ```
 
-5. Open your browser and go to http://localhost:3000
+8. Open your browser and go to http://localhost:3000
 
-6. Run the feature test suite:
+9. Run the feature test suite:
+   ```
          bundle exec rspec
+   ```
 
-8. Run the feature test suite:
+11. Run the feature test suite:
+    ```
          rails test
+    ```
